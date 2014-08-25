@@ -22,12 +22,42 @@ ActiveRecord::Schema.define(:version => 20120601224055) do
     t.datetime "updated_at",   :null => false
   end
 
+  create_table "sqlite_sp_functions", :id => false, :force => true do |t|
+    t.text "name"
+    t.text "text"
+  end
+
+# Could not dump table "sqlite_stat1" because of following StandardError
+#   Unknown type '' for column 'tbl'
+
+# Could not dump table "sqlite_stat4" because of following StandardError
+#   Unknown type '' for column 'tbl'
+
+  create_table "sqlite_vs_links_names", :id => false, :force => true do |t|
+    t.text "name"
+    t.text "alias"
+  end
+
+  create_table "sqlite_vs_properties", :id => false, :force => true do |t|
+    t.text "parentType"
+    t.text "parentName"
+    t.text "propertyName"
+    t.text "propertyValue"
+  end
+
   create_table "users", :force => true do |t|
-    t.string   "provider"
-    t.string   "uid"
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "email"
+    t.string   "linkedin_id"
+    t.string   "linkedin_name"
+    t.string   "linkedin_email"
+    t.string   "linkedin_headline"
+    t.string   "linkedin_location"
+    t.string   "linkedin_photo_url"
+    t.string   "linkedin_profile_url"
+    t.string   "linkedin_industry"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
 end

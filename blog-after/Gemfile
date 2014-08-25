@@ -37,4 +37,8 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-gem 'omniauth-twitter'
+gem 'awesome_print'
+gem 'rails-secrets'
+gem 'omniauth', '~> 1.2.2'
+gem 'omniauth-linkedin', '~> 0.2.0'
+#gem 'omniauth-linkedin-oauth2', '~> 0.1.1'
