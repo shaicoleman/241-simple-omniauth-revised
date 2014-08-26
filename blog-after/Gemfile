@@ -18,7 +18,11 @@ group :assets do
   gem 'therubyracer', :platform => :ruby
   gem 'jquery-rails'
 
+  gem 'quiet_assets', '~> 1.0.3'
+
   gem 'uglifier', '>= 1.0.3'
+
+
 end
 
 

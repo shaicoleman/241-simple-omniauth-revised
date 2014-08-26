@@ -26,6 +26,8 @@ class SessionsController < ApplicationController
 
   def omniauth_failure
     flash[:error] = "Authentication failed, please try again."
+    return render :close_window, layout: false if params[:oauth_problem].present?
+
     return redirect_to :root
   end
 
