@@ -3,9 +3,7 @@ class SessionsController < ApplicationController
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
     flash[:success] = "Logged in!"
-    if params[:oauth_token].present?
-      return render :close_window
-    end
+    return render :close_window if params[:oauth_token].present?
     return redirect_to :root
   end
   

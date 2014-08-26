@@ -47,17 +47,10 @@ ActiveRecord::Schema.define(:version => 20120601224055) do
 
   create_table "users", :force => true do |t|
     t.string   "name"
-    t.string   "email"
     t.string   "linkedin_id"
-    t.string   "linkedin_name"
-    t.string   "linkedin_email"
-    t.string   "linkedin_headline"
-    t.string   "linkedin_location"
-    t.string   "linkedin_photo_url"
-    t.string   "linkedin_profile_url"
-    t.string   "linkedin_industry"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.text     "linkedin_data"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
 end
