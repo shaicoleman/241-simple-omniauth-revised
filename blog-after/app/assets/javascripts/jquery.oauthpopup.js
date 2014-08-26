@@ -29,7 +29,7 @@
 
         if (typeof($.oauthWindow) !== 'undefined') { $.oauthWindow.close(); }
         $.oauthWindow = window.open(options.path, options.windowName, windowOptions);
-        try { $.oauthWindow.document.title = 'Please wait...'; } catch(e) {}
+        //try { $.oauthWindow.document.title = 'Please wait...'; } catch(e) {}
         var oauthInterval = window.setInterval(function(){
             if ($.oauthWindow.closed) {
                 window.clearInterval(oauthInterval);

@@ -7,11 +7,17 @@
     <%= csrf_meta_tag %>
   </head>
   <body>
+    <script>
+      if (window.opener) {
+        opener.location.reload();
+        window.close();
+      }
+    </script>
     <div id="container">
       <div id="user_nav">
         <% if current_user && current_user.linkedin_id.present? %>
           Signed in as <%= current_user.name %>!
-          <%= link_to "Disconnect LinkedIn", "/auth/linkedin/destroy" %>
+          <%= link_to "Disconnect LinkedIn", "/auth/linkedin/destroy", class: 'oauth_disconnect' %>
           <%= link_to "Log out", logout_path %>
         <% else %>
           <%= link_to "Log in with LinkedIn", "/auth/linkedin", class: 'oauthpopup' %>
