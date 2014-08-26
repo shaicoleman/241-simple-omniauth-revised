@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
     if auth['provider'] == 'linkedin'
       user = where(linkedin_id: auth['uid']).first_or_create
       raw_info = auth['extra']['raw_info']
-      #logger.debug JSON.pretty_generate(JSON.parse(auth.to_json))
+      logger.debug JSON.pretty_generate(JSON.parse(auth.to_json))
       user.linkedin_name        = [raw_info['firstName'], raw_info['lastName']].reject(&:blank?).join(' ').squish
       user.linkedin_email       = raw_info['emailAddress']
       user.linkedin_headline    = raw_info['headline']
