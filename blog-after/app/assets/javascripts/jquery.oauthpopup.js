@@ -10,6 +10,10 @@
 (function($){
     //  inspired by DISQUS
     $.oauthpopup = function(options) {
+        $('body').append('<div id="oauthpopup-overlay" style="background: rgba(0, 0, 0, 0.8); top: 0; left: 0; width:100%; height:100%; position:fixed; z-index:5000; display: none;"></div>');
+        $('#oauthpopup-overlay').click(function() { $.oauthWindow.close(); });
+        $('#oauthpopup-overlay').fadeIn(400);
+
         options = $.extend({
             width: 400,
             height: 460,
@@ -33,9 +37,10 @@
         var oauthInterval = window.setInterval(function(){
             if ($.oauthWindow.closed) {
                 window.clearInterval(oauthInterval);
+                $('#oauthpopup-overlay').remove();
                 options.onClose();
             }
-        }, 500);
+        }, 100);
         return false;
     };
 
